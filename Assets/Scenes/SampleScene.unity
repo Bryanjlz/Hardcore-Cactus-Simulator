@@ -345,6 +345,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &678133332 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7518881270346057630, guid: 6318d600d86648b4992522a0e01b8704, type: 3}
+  m_PrefabInstance: {fileID: 6292343956757224655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &690868984
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temperature: 293
+  inGameDeltaTime: 0
   timeMultiplier: 1
   plants: 1
 --- !u!4 &690868986
@@ -844,7 +850,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3506433448338328835, guid: 6318d600d86648b4992522a0e01b8704, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327870078637696284, guid: 6318d600d86648b4992522a0e01b8704, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 678133332}
+    - target: {fileID: 7518881270346057630, guid: 6318d600d86648b4992522a0e01b8704, type: 3}
+      propertyPath: m_FlipX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518881270346057630, guid: 6318d600d86648b4992522a0e01b8704, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518881270346057630, guid: 6318d600d86648b4992522a0e01b8704, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518881270346057630, guid: 6318d600d86648b4992522a0e01b8704, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8526421105486901903, guid: 6318d600d86648b4992522a0e01b8704, type: 3}
       propertyPath: m_RootOrder
