@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class GameController: MonoBehaviour {
@@ -21,6 +22,8 @@ public class GameController: MonoBehaviour {
     public DateTime time;
     public TimeSpan inGameDeltaTime;
 
+    public DateTime timeToDie = new DateTime(2060, 1, 1, 0, 0, 0);
+
     public float timeMultiplier = 1.0f;
     public int plants = 1;
 
@@ -29,12 +32,18 @@ public class GameController: MonoBehaviour {
             instance = this;
         }
         time = new DateTime(2000, 1, 1, 0, 0, 0);
+        
+        SceneManager.LoadScene("PosterScene", LoadSceneMode.Additive);
     }
 
     public void Update() {
         float delta = Time.deltaTime;
         inGameDeltaTime = new TimeSpan((long) (delta * timeMultiplier * SECOND_TO_TICK));
         time = time.Add(inGameDeltaTime);
+
+        if (time > timeToDie) {
+            SceneManager.LoadScene("End Screen", LoadSceneMode.Single);
+        }
     }
 
     public float CalculateTimeMultiplier(int plants) {
