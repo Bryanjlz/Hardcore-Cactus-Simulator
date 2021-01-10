@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1396005945
-  m_SortingLayer: 2
+  m_SortingLayerID: 1443953435
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 41e67bd205e3d524ea9854320c455681, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dateText: {fileID: 6135575040166624964}
   temperatureText: {fileID: 585311110457165133}
-  temperature: 0
+  temperature: 293
   timeMultiplier: 1
 --- !u!1 &2467409017858236493
 GameObject:
@@ -250,8 +250,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1396005945
-  m_SortingLayer: 2
+  m_SortingLayerID: 1443953435
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &585311110457165133
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 273
+  m_text: 293
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 60d36ddb730faaf41b3863856f0d2b83, type: 2}
   m_sharedMaterial: {fileID: -7428004389262338719, guid: 60d36ddb730faaf41b3863856f0d2b83, type: 2}
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 3971781869973424541}
   m_maskType: 0
-  _SortingLayerID: 1396005945
+  _SortingLayerID: 1443953435
   _SortingOrder: 1
 --- !u!1 &7157449009234459178
 GameObject:
@@ -563,8 +563,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1396005945
-  m_SortingLayer: 2
+  m_SortingLayerID: 1443953435
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6135575040166624964
@@ -656,5 +656,5 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 7377499275520762576}
   m_maskType: 0
-  _SortingLayerID: 1396005945
+  _SortingLayerID: 1443953435
   _SortingOrder: 1

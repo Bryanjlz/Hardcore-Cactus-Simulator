@@ -12,7 +12,6 @@ public class ThermostatButton: MonoBehaviour {
     public ButtonType type;
 
     public void OnMouseDown() {
-        print("A");
         switch (type) {
             case ButtonType.INCREMENT:
                 IncrementTemperature();
@@ -27,13 +26,11 @@ public class ThermostatButton: MonoBehaviour {
     }
 
     public void IncrementTemperature() {
-        thermostat.temperature++;
-        thermostat.temperatureText.text = thermostat.temperature.ToString();
+        GameController.instance.temperature++;
     }
 
     public void DecrementTemperature() {
-        thermostat.temperature--;
-        thermostat.temperatureText.text = thermostat.temperature.ToString();
+        GameController.instance.temperature--;
     }
 
     public void BuyCactus() {

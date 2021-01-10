@@ -53,3 +53,6 @@ TagManager:
   - name: Foreground
     uniqueID: 3274954717
     locked: 0
+  - name: Additive Front
+    uniqueID: 1443953435
+    locked: 0
