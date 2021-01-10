@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThermostatScene.unity
     guid: 97bc949d343ed5d419fd0e082c0ac452
+  - enabled: 1
+    path: Assets/Scenes/PosterScene.unity
+    guid: 3fd978ddcd4d43f4ea13303b9eb4f485
   m_configObjects: {}
