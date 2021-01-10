@@ -19,6 +19,8 @@ public class GameController: MonoBehaviour {
     //In Kelvin
     public int temperature = CELSIUS_TO_KELVIN + 20;
     public DateTime time;
+    public TimeSpan inGameDeltaTime;
+
     public float timeMultiplier = 1.0f;
     public int plants = 1;
 
@@ -31,32 +33,42 @@ public class GameController: MonoBehaviour {
 
     public void Update() {
         float delta = Time.deltaTime;
-        time = time.Add(new TimeSpan((long) (delta * timeMultiplier * SECOND_TO_TICK)));
+        inGameDeltaTime = new TimeSpan((long) (delta * timeMultiplier * SECOND_TO_TICK));
+        time = time.Add(inGameDeltaTime);
     }
 
-
     public float CalculateTimeMultiplier(int plants) {
+        int intervalSize = 10;
+        float exponentialCoefficient = 0.125f;
+        float exponentialConstant = 0.875f;
+
+        int multAt10 = 100000;
+        int multAt20 = 2000000;
+        int linearScaling = (multAt20 - multAt10)/intervalSize;
+
+        float sexticCoefficient = 2.77f;
+
         if (plants < 0) {
             throw new ArgumentException("Number of plants must be non-negative");
         } else if (plants <= 1) {
             //With a single plant, or no plants, time works as expected (1 second in real time is 1 second in game)
             return 1;
-        } else if (plants < 10) {
+        } else if (plants < intervalSize) {
             //As you get more plants, we see a higher rise in time taken
             //Exponential, since linear increases are harder to scale, and because the jumps feel better
             //Low coefficient means the first few plants have noticeable, but not absurd values
             //f(2) ~ 2.2, f(3) ~ 9.2
             //f(10) is close to, but not equal to 1000000, so it is excluded
-            return 0.875f + 0.125f*(plants * plants) * Mathf.Exp(plants - 1);
-        } else if (plants <= 20) {
+            return exponentialConstant + exponentialCoefficient *(plants * plants) * Mathf.Exp(plants - 1);
+        } else if (plants <= 2 * intervalSize) {
             //At this high amount, we want the time to 'feel' stable while still increasing
             //Linear function means it feels like a slower relative increase, despite the overall higher slope
             //Key points: f(10)=100000 (a little over 1 second/dayk), f(20)=2000000 (a little under a month per second)
-            return 100000 + 190000*(plants - 10);
+            return multAt10 + linearScaling * (plants - intervalSize);
         } else {
             //Sextic(?) function so you achieve the optimal 1 year/second by f(30)
             //Added to lienar function for continuity
-            return 2.77f * Mathf.Pow((plants-20), 7) + 2000000 + 190000 * (plants - 20);
+            return sexticCoefficient * Mathf.Pow((plants - 2 * intervalSize), 7) + multAt20 + linearScaling * (plants - 2 * intervalSize);
         }
     }
 }
