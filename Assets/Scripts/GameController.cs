@@ -6,6 +6,8 @@ public class GameController: MonoBehaviour {
     //Singleton
     public static GameController instance;
 
+    public SeasonalController seasonalController;
+
     //Conversion from seconds to C# ticks
     private const int SECOND_TO_TICK = 10000000;
     public const int MINUTE = 60;
@@ -18,7 +20,7 @@ public class GameController: MonoBehaviour {
 
     //Control values
     //In Kelvin
-    public int temperature = CELSIUS_TO_KELVIN + 20;
+    public float temperature = CELSIUS_TO_KELVIN + 20;
     public DateTime time;
     public float inGameDeltaTime;
 
@@ -44,6 +46,9 @@ public class GameController: MonoBehaviour {
         if (time > timeToDie) {
             SceneManager.LoadScene("End Screen", LoadSceneMode.Single);
         }
+
+        float towardsTemperature = seasonalController.GetAmbientTemperature(time);
+        temperature += (int) (inGameDeltaTime * (towardsTemperature - (temperature - CELSIUS_TO_KELVIN))/180000);
     }
 
     public float CalculateTimeMultiplier(int plants) {

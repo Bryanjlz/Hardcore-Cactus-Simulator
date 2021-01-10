@@ -75,7 +75,7 @@ public class Cactus : MonoBehaviour
         timeElapsed = GameController.instance.inGameDeltaTime;
         accumulatedTime += timeElapsed;
         if (accumulatedTime > 1 && isAlive) {
-            temp = GameController.instance.temperature;
+            temp = (int) GameController.instance.temperature;
 
             //Calculate growth rate
             tempGrowthReduction = Mathf.Abs((temp - PERFECT_TEMP) / DEATH_TEMP_ERROR) * 0.5f;
