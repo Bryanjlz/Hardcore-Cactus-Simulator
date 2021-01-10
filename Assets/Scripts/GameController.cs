@@ -19,7 +19,7 @@ public class GameController: MonoBehaviour {
     //In Kelvin
     public int temperature = CELSIUS_TO_KELVIN + 20;
     public DateTime time;
-    public TimeSpan inGameDeltaTime;
+    public float inGameDeltaTime;
 
     public float timeMultiplier = 1.0f;
     public int plants = 1;
@@ -33,8 +33,8 @@ public class GameController: MonoBehaviour {
 
     public void Update() {
         float delta = Time.deltaTime;
-        inGameDeltaTime = new TimeSpan((long) (delta * timeMultiplier * SECOND_TO_TICK));
-        time = time.Add(inGameDeltaTime);
+        inGameDeltaTime = delta * timeMultiplier;
+        time = time.Add(new TimeSpan((long)(inGameDeltaTime * SECOND_TO_TICK)));
     }
 
     public float CalculateTimeMultiplier(int plants) {

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8526421105486901903}
   - component: {fileID: 4327870078637696284}
+  - component: {fileID: 49602546117526702}
+  - component: {fileID: 6547282096659108441}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
@@ -48,6 +50,16 @@ MonoBehaviour:
   growthState: 0
   growth: 0
   growthRate: 1
+  growthCheckpoints:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   waterLevel: 0
   isAlive: 1
   cacti:
@@ -60,6 +72,70 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 04e81581d5041d34bbce58c42523aac4, type: 3}
   - {fileID: 21300000, guid: 4d201d98f3c19324a952c0ccb6e5cae3, type: 3}
   - {fileID: 21300000, guid: 0afcd65ca9ae7f04c97d9fa10ac8595c, type: 3}
+  radius:
+  - 0.05
+  - 0.1
+  - 0.2
+  - 0.35
+  - 0.45
+  - 0.855
+  - 0.855
+  - 0.855
+  - 0.855
+  yPos:
+  - 0.05
+  - 0.1
+  - 0.15
+  - 0.3
+  - 0.4
+  - 0.75
+  - 0.75
+  - 0.75
+  - 0.75
+  circleCollider: {fileID: 1605487015164908424}
+--- !u!50 &49602546117526702
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506433448338328835}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &6547282096659108441
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506433448338328835}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &7136354786726746687
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9045404349317299981}
   - component: {fileID: 7643545442564303626}
+  - component: {fileID: 5797354091850421171}
   m_Layer: 0
   m_Name: Pot
   m_TagString: Untagged
@@ -142,6 +219,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &5797354091850421171
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136354786726746687}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.28, y: 2.23}
+    newSize: {x: 2.28, y: 2.23}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.1116295, y: 0.9920609}
+      - {x: -0.96031946, y: -0.9826038}
+      - {x: 0.6576995, y: -1.0771723}
+      - {x: 1.1210859, y: 1.0015177}
 --- !u!1 &8644296576306710279
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2463264313780203479}
   - component: {fileID: 7518881270346057630}
+  - component: {fileID: 1605487015164908424}
   m_Layer: 0
   m_Name: cactus plant
   m_TagString: Untagged
@@ -213,7 +320,7 @@ SpriteRenderer:
   m_SortingLayerID: -1020012579
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0afcd65ca9ae7f04c97d9fa10ac8595c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2ccaa7634f765e42a18c85bcb6fdbd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -224,3 +331,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!58 &1605487015164908424
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8644296576306710279}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.05}
+  serializedVersion: 2
+  m_Radius: 0.05
