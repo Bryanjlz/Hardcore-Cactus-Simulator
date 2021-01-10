@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8526421105486901903}
+  - component: {fileID: 4327870078637696284}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
@@ -32,6 +33,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4327870078637696284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506433448338328835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9b15094312bc641a9946111142fa55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growthState: 0
+  growth: 0
+  growthRate: 1
+  waterLevel: 0
+  isAlive: 1
+  cacti:
+  - {fileID: 21300000, guid: d2ccaa7634f765e42a18c85bcb6fdbd5, type: 3}
+  - {fileID: 21300000, guid: cd0c7bf452a558f4ebb4ea7a8f59a2a1, type: 3}
+  - {fileID: 21300000, guid: 07e05f03c6cd35f4a8dde773a967658d, type: 3}
+  - {fileID: 21300000, guid: 1904ebe54c909884cbcf77d93ce2e863, type: 3}
+  - {fileID: 21300000, guid: dcfc0ff474006af4b89f5448eba54de2, type: 3}
+  - {fileID: 21300000, guid: 7fbea4c2a9b4d29489170071b0577121, type: 3}
+  - {fileID: 21300000, guid: 04e81581d5041d34bbce58c42523aac4, type: 3}
+  - {fileID: 21300000, guid: 4d201d98f3c19324a952c0ccb6e5cae3, type: 3}
+  - {fileID: 21300000, guid: 0afcd65ca9ae7f04c97d9fa10ac8595c, type: 3}
 --- !u!1 &7136354786726746687
 GameObject:
   m_ObjectHideFlags: 0
