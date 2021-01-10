@@ -14,7 +14,7 @@ public class Thermostat: MonoBehaviour {
     //Control values
     //In Kelvin
     [Tooltip("In Kelvin")]
-    public int temperature;
+    public int temperature = 293;
     public DateTime time;
     public float timeMultiplier = 1.0f;
 
@@ -25,7 +25,7 @@ public class Thermostat: MonoBehaviour {
 
     public void Update() {
         float delta = Time.deltaTime;
-        time = time.Add(new TimeSpan((int) (SECOND_TO_TICK * delta * timeMultiplier)));
+        time = time.Add(new TimeSpan((long) (delta * timeMultiplier * SECOND_TO_TICK)));
         dateText.text = time.ToString("yyyy-MM-dd\nHH:mm:ss");
     }
 }

@@ -130,9 +130,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158883253935823101, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 760394993881233002, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
       propertyPath: m_Name
       value: Thermostat
+      objectReference: {fileID: 0}
+    - target: {fileID: 760394993881233002, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2701060976287697821, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726059993380450202, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: timeMultiplier
+      value: 1053333
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900961820272674402, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5700772872943937432, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
       propertyPath: m_RootOrder
