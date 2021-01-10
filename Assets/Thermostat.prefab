@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1396005945
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 41e67bd205e3d524ea9854320c455681, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,6 +100,7 @@ MonoBehaviour:
   dateText: {fileID: 6135575040166624964}
   temperatureText: {fileID: 585311110457165133}
   temperature: 0
+  timeMultiplier: 1
 --- !u!1 &4526967946116299572
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,9 +175,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1396005945
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &585311110457165133
 MonoBehaviour:
@@ -267,8 +268,8 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 3971781869973424541}
   m_maskType: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingLayerID: 1396005945
+  _SortingOrder: 1
 --- !u!1 &8989482586126699439
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,9 +344,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1396005945
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6135575040166624964
 MonoBehaviour:
@@ -436,5 +437,5 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 7377499275520762576}
   m_maskType: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
+  _SortingLayerID: 1396005945
+  _SortingOrder: 1
