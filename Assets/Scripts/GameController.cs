@@ -13,9 +13,11 @@ public class GameController: MonoBehaviour {
     public const int MONTH = 30 * DAY;
     public const int YEAR = 12 * MONTH;
 
+    private const int CELSIUS_TO_KELVIN = 273;
+
     //Control values
     //In Kelvin
-    public int temperature = 293;
+    public int temperature = CELSIUS_TO_KELVIN + 20;
     public DateTime time;
     public float timeMultiplier = 1.0f;
     public int plants = 1;
@@ -33,7 +35,7 @@ public class GameController: MonoBehaviour {
     }
 
 
-    public float GetTimeMultiplier(int plants) {
+    public float CalculateTimeMultiplier(int plants) {
         if (plants < 0) {
             throw new ArgumentException("Number of plants must be non-negative");
         } else if (plants <= 1) {
