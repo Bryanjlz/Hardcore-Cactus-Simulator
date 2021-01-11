@@ -56,9 +56,9 @@ public class GameController: MonoBehaviour {
         }
 
         float towardsTemperature = seasonalController.GetAmbientTemperature(time);
-        towardsTemperature = inGameDeltaTime * ((towardsTemperature * 1.8f + 32) - temperature/1800000);
+        towardsTemperature = inGameDeltaTime * ((towardsTemperature * 1.8f + 32) - temperature)/1800000;
         //prevent bad;
-        if (Mathf.Abs(towardsTemperature) < 0.001f) {
+        if (Mathf.Abs(towardsTemperature) < 1f) {
             temperature += towardsTemperature;
         }
     }
