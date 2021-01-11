@@ -122,7 +122,6 @@ public class Cactus : MonoBehaviour
             if (b > 14 / 256f) {
                 b -= 1f / 256f;
             }
-            print(r + " " + g + " " + b);
             spriteRenderer.color = new Color(r, g, b);
         }
 

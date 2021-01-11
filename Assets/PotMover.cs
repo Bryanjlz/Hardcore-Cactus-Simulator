@@ -13,8 +13,6 @@ public class PotMover : MonoBehaviour
     private float originalY;
     public bool isBeingHeld = false;
 
-    private bool alreadyDead;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +39,6 @@ public class PotMover : MonoBehaviour
             startPosX = GameController.instance.mousex;
             startPosY = GameController.instance.mousey;
 
-            Debug.Log(originalX + ", " + originalY);
             this.gameObject.transform.localPosition = new Vector3(startPosX - shiftedX, startPosY - shiftedY, 0);
         }
     }
@@ -58,13 +55,12 @@ public class PotMover : MonoBehaviour
         shiftedY = startPosY - this.gameObject.transform.localPosition.y;
 
         isBeingHeld = true;
-        Debug.Log("why");
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         OutTheWindow otherItem = other.collider.GetComponent<OutTheWindow>();
-
+        gameObject.SetActive(false);
 
         if (otherItem != null)
         {
@@ -79,6 +75,5 @@ public class PotMover : MonoBehaviour
         }
 
         //we also add a debug log to know what the projectile touch
-        Debug.Log("Projectile Collision with " + other.gameObject);
     }
 }

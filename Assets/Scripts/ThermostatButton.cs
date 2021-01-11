@@ -35,5 +35,6 @@ public class ThermostatButton: MonoBehaviour {
 
     public void BuyCactus() {
         GameController.instance.timeMultiplier = GameController.instance.CalculateTimeMultiplier(++GameController.instance.plants);
+        CactiController.instance.AddCactus();
     }
 }

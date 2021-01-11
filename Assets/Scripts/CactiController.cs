@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CactiController : MonoBehaviour
 {
+
+    // this one
+    public static CactiController instance;
+
     //Constants
     const float HOR_DIST = 1.4f;
     const float VERT_DIST = 1f;
@@ -13,32 +17,23 @@ public class CactiController : MonoBehaviour
     //Cactus array
     GameObject[][] cacti = new GameObject[3][];
 
-    List<GameObject> ascending = new List<GameObject>();
     //Cactus prefab
     [SerializeField]
     GameObject cactusPrefab;
 
-    //internal cactus count
-    int cactusCount;
-
     void Start()
     {
+        if (!instance)
+        {
+            instance = this;
+        }
         //Instantiate array
         for (int i = 0; i < 3; i++) {
             cacti[i] = new GameObject[10];
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (cactusCount < GameController.instance.plants) {
-            AddCactus();
-            cactusCount++;
-        }
-    }
-
-    private void AddCactus () {
+    public void AddCactus () {
         if (GameController.instance.plants < 30) {
             int row = Random.Range(0, 3);
             int col = Random.Range(0, 10);
