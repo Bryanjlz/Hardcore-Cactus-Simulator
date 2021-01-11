@@ -94,7 +94,7 @@ MonoBehaviour:
   - 0.75
   - 0.75
   circleCollider: {fileID: 1605487015164908424}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 7518881270346057630}
 --- !u!50 &49602546117526702
 Rigidbody2D:
   serializedVersion: 4

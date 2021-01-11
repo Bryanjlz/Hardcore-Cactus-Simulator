@@ -7,7 +7,7 @@ public class CactiController : MonoBehaviour
     //Constants
     const float HOR_DIST = 1.4f;
     const float VERT_DIST = 1f;
-    const float Y_START = -2.5f;
+    const float Y_START = -1.4f;
     float[] xStart = { -6f, -6.8f, -7.7f };
 
     //Cactus array
@@ -39,13 +39,16 @@ public class CactiController : MonoBehaviour
 
     private void AddCactus () {
         if (GameController.instance.plants < 30) {
-            int row = Random.Range(0, 2);
-            int col = Random.Range(0, 9);
+            int row = Random.Range(0, 3);
+            int col = Random.Range(0, 10);
             while (cacti[row][col] != null) {
-                row = Random.Range(0, 2);
-                col = Random.Range(0, 9);
+                row = Random.Range(0, 3);
+                col = Random.Range(0, 10);
             }
-            Instantiate(cactusPrefab, new Vector3(xStart[row] + col * HOR_DIST, Y_START + row * VERT_DIST, 0), Quaternion.identity);
+            var go = Instantiate(cactusPrefab, new Vector3(xStart[row] + col * HOR_DIST, Y_START - row * VERT_DIST, 0), Quaternion.identity);
+            go.transform.SetParent(gameObject.transform);
+            go.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2 * row + 1;
+            go.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2 * row;
         }
         
 
