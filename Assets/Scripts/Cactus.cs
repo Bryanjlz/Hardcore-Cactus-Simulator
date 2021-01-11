@@ -33,6 +33,10 @@ public class Cactus : MonoBehaviour
     bool isAlive;
     [SerializeField]
     bool isAscended;
+    bool initAscendFlag = true;
+    [SerializeField]
+    GameObject ascendParticles;
+
     private int temp;
     private float timeElapsed;
     private float accumulatedTime;
@@ -125,6 +129,10 @@ public class Cactus : MonoBehaviour
         //Ascension animation
         if (isAscended) {
             Transform t = gameObject.transform;
+            if (initAscendFlag) {
+                Instantiate(ascendParticles, t);
+                initAscendFlag = false;
+            }
             gameObject.transform.position = new Vector3(t.position.x, t.position.y + ASCENSION_SPEED * timeElapsed, t.position.z);
             if (t.position.y > 5.2) {
                 Destroy(gameObject);
