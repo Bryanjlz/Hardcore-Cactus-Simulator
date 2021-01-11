@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seasonalController: {fileID: 690868987}
-  temperature: 293
+  temperature: 68
   inGameDeltaTime: 0
   timeMultiplier: 1
   plants: 1

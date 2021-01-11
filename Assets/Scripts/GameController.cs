@@ -16,13 +16,12 @@ public class GameController: MonoBehaviour {
     public const int MONTH = 30 * DAY;
     public const int YEAR = 12 * MONTH;
 
-    private const int CELSIUS_TO_KELVIN = 273;
-
     //Control values
     //In Kelvin
-    public float temperature = CELSIUS_TO_KELVIN + 20;
+    public float temperature = 68;
     public DateTime time;
     public float inGameDeltaTime;
+    public static int score = 0;
 
     public DateTime timeToDie = new DateTime(2060, 1, 1, 0, 0, 0);
 
@@ -38,6 +37,7 @@ public class GameController: MonoBehaviour {
             instance = this;
         }
         time = new DateTime(2000, 1, 1, 0, 0, 0);
+        score = 0;
         
         SceneManager.LoadScene("PosterScene", LoadSceneMode.Additive);
     }
@@ -55,7 +55,11 @@ public class GameController: MonoBehaviour {
         }
 
         float towardsTemperature = seasonalController.GetAmbientTemperature(time);
-        temperature += (int) (inGameDeltaTime * (towardsTemperature - (temperature - CELSIUS_TO_KELVIN))/1800000);
+        towardsTemperature = inGameDeltaTime * ((towardsTemperature * 1.8f + 32) - temperature/1800000);
+        //prevent bad;
+        if (Mathf.Abs(towardsTemperature) < 0.001f) {
+            temperature += towardsTemperature;
+        }
     }
 
     public float CalculateTimeMultiplier(int plants) {

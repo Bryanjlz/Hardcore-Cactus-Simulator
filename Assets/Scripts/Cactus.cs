@@ -129,9 +129,10 @@ public class Cactus : MonoBehaviour
         //Ascension animation
         if (isAscended) {
             Transform t = gameObject.transform;
+            Instantiate(ascendParticles, t).transform.SetParent(null);
             if (initAscendFlag) {
-                Instantiate(ascendParticles, t).transform.SetParent(null);
-                //initAscendFlag = false;
+                initAscendFlag = false;
+                GameController.score++;
             }
             gameObject.transform.position = new Vector3(t.position.x, t.position.y + ASCENSION_SPEED * timeElapsed, t.position.z);
             if (t.position.y > 5.2) {
