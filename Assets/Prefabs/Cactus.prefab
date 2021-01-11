@@ -63,6 +63,7 @@ MonoBehaviour:
   waterLevel: 0
   isAlive: 1
   isAscended: 0
+  ascendParticles: {fileID: 8222966980368501731, guid: d99cce3d1d6907d479d48c82e1c8bd42, type: 3}
   cacti:
   - {fileID: 21300000, guid: d2ccaa7634f765e42a18c85bcb6fdbd5, type: 3}
   - {fileID: 21300000, guid: cd0c7bf452a558f4ebb4ea7a8f59a2a1, type: 3}

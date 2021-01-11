@@ -55,7 +55,7 @@ public class GameController: MonoBehaviour {
         }
 
         float towardsTemperature = seasonalController.GetAmbientTemperature(time);
-        temperature += (int) (inGameDeltaTime * (towardsTemperature - (temperature - CELSIUS_TO_KELVIN))/180000);
+        temperature += (int) (inGameDeltaTime * (towardsTemperature - (temperature - CELSIUS_TO_KELVIN))/1800000);
     }
 
     public float CalculateTimeMultiplier(int plants) {
