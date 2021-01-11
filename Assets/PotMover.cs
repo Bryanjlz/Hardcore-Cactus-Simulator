@@ -11,7 +11,7 @@ public class PotMover : MonoBehaviour
     private float shiftedY;
     private float originalX;
     private float originalY;
-    public bool isBeingHeld = true;
+    public bool isBeingHeld = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,8 @@ public class PotMover : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             isBeingHeld = false;
+
+            // Go back to original position
             if (true)
             {
                 this.gameObject.transform.localPosition = new Vector3(originalX, originalY, 0);
