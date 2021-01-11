@@ -50,6 +50,7 @@ public class CactiController : MonoBehaviour
             go.transform.SetParent(gameObject.transform);
             go.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2 * row + 1;
             go.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2 * row;
+            cacti[row][col] = go;
         }
         
 

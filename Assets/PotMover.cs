@@ -13,6 +13,8 @@ public class PotMover : MonoBehaviour
     private float originalY;
     public bool isBeingHeld = false;
 
+    private bool alreadyDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,5 +59,25 @@ public class PotMover : MonoBehaviour
 
         isBeingHeld = true;
         Debug.Log("why");
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        OutTheWindow otherItem = other.collider.GetComponent<OutTheWindow>();
+
+
+        if (otherItem != null)
+        {
+            Destroy(gameObject);
+            alreadyDead = true;
+            if (alreadyDead)
+            {
+                GameController.instance.plants -= 1;
+            }
+            Debug.Log(GameController.instance.plants);
+        }
+
+        //we also add a debug log to know what the projectile touch
+        Debug.Log("Projectile Collision with " + other.gameObject);
     }
 }

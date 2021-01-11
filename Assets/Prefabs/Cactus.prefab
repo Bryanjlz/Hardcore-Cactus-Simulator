@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 753599099267306478}
   - component: {fileID: 418020614073886488}
   - component: {fileID: 3047327854250786609}
-  m_Layer: 0
+  - component: {fileID: 2838115295401211941}
+  m_Layer: 8
   m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,6 +157,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBeingHeld: 0
+--- !u!50 &2838115295401211941
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506433448338328835}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &7136354786726746687
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9045404349317299981}
   - component: {fileID: 7643545442564303626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2463264313780203479}
   - component: {fileID: 7518881270346057630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cactus plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
