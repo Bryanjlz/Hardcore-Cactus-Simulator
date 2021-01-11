@@ -74,8 +74,8 @@ public class Cactus : MonoBehaviour
         //Get Room stats
         timeElapsed = GameController.instance.inGameDeltaTime;
         accumulatedTime += timeElapsed;
-        if (accumulatedTime > 1 && isAlive) {
-            temp = GameController.instance.temperature;
+        if (accumulatedTime > 1 && isAlive && !isAscended) {
+            temp = (int) GameController.instance.temperature;
 
             //Calculate growth rate
             tempGrowthReduction = Mathf.Abs((temp - PERFECT_TEMP) / DEATH_TEMP_ERROR) * 0.5f;
@@ -121,5 +121,7 @@ public class Cactus : MonoBehaviour
             print(r + " " + g + " " + b);
             spriteRenderer.color = new Color(r, g, b);
         }
+
+        //
     }
 }
