@@ -13,6 +13,9 @@ public class PotMover : MonoBehaviour
     private float originalY;
     public bool isBeingHeld = false;
 
+    // Jank
+    private int JANK;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,21 +62,16 @@ public class PotMover : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        JANK++;
         OutTheWindow otherItem = other.collider.GetComponent<OutTheWindow>();
         gameObject.SetActive(false);
 
-        if (otherItem != null)
+        if (otherItem != null && JANK <= 1)
         {
             Destroy(gameObject);
-            alreadyDead = true;
-            if (alreadyDead)
-            {
                 GameController.instance.plants -= 1;
                 GameController.instance.timeMultiplier = GameController.instance.CalculateTimeMultiplier(GameController.instance.plants);
             }
-            Debug.Log(GameController.instance.plants);
-        }
-
-        //we also add a debug log to know what the projectile touch
-    }
+        Debug.Log(GameController.instance.plants);
+    }   
 }
