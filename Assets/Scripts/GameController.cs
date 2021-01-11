@@ -29,6 +29,10 @@ public class GameController: MonoBehaviour {
     public float timeMultiplier = 1.0f;
     public int plants = 1;
 
+    // Mouse Positions
+    public float mousex;
+    public float mousey;
+
     public void Start() {
         if (!instance) {
             instance = this;
@@ -42,6 +46,9 @@ public class GameController: MonoBehaviour {
         float delta = Time.deltaTime;
         inGameDeltaTime = delta * timeMultiplier;
         time = time.Add(new TimeSpan((long)(inGameDeltaTime * SECOND_TO_TICK)));
+
+        mousex = (Camera.main.ScreenToWorldPoint(Input.mousePosition)).x;
+        mousey = (Camera.main.ScreenToWorldPoint(Input.mousePosition)).y;
 
         if (time > timeToDie) {
             SceneManager.LoadScene("End Screen", LoadSceneMode.Single);
