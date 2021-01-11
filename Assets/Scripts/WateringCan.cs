@@ -26,7 +26,6 @@ public class WateringCan : MonoBehaviour
         {
             thisWater.GetComponent<DragDroplet>().isBeingHeld = true;
             thisWater.transform.localPosition = new Vector3(GameController.instance.mousex, GameController.instance.mousex, 0);
-            thisWater.GetComponent<DragDroplet>().JANK = 0;
             thisWater.SetActive(true);
         }
     }

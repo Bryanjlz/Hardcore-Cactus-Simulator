@@ -10,7 +10,7 @@ public class Cactus : MonoBehaviour
     private const float DEATH_WATER_ERROR = PERFECT_WATER * 0.5f;
     private const float DEATH_WATER_UPPER = PERFECT_WATER + DEATH_WATER_ERROR;
     private const float DEATH_WATER_LOWER = 0;
-    private const float PERFECT_TEMP = 273 + 20;
+    private const float PERFECT_TEMP = 68;
     private const float DEATH_TEMP_ERROR = PERFECT_TEMP * 0.05f;
     private const float DEATH_TEMP_LOWER = PERFECT_TEMP - DEATH_TEMP_ERROR;
     private const float DEATH_TEMP_UPPER = PERFECT_TEMP + DEATH_TEMP_ERROR;
@@ -28,7 +28,7 @@ public class Cactus : MonoBehaviour
     [SerializeField]
     float[] growthCheckpoints = new float[8];
     [SerializeField]
-    float waterLevel;
+    public float waterLevel;
     [SerializeField]
     bool isAlive;
     [SerializeField]
@@ -91,8 +91,14 @@ public class Cactus : MonoBehaviour
             growth += accumulatedTime * growthRate;
 
             //Check for evolution
-            if (growth >= growthCheckpoints[growthState] && growthState < 8) {
+            if (growth >= growthCheckpoints[growthState] && growthState < 8)
+            {
                 growthState += 1;
+
+                if (growthState == 8)
+                {
+                    isAscended = true;
+                }
 
                 //change sprite and hitbox
                 circleCollider.radius = radius[growthState];
@@ -133,7 +139,7 @@ public class Cactus : MonoBehaviour
                 initAscendFlag = false;
                 GameController.score++;
             }
-            gameObject.transform.position = new Vector3(t.position.x, t.position.y + ASCENSION_SPEED * timeElapsed, t.position.z);
+            gameObject.transform.position = new Vector3(t.position.x, t.position.y + ASCENSION_SPEED * Time.deltaTime, t.position.z);
             if (t.position.y > 5.2) {
                 Destroy(gameObject);
             }

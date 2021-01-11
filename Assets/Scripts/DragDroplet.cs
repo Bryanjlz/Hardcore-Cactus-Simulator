@@ -9,12 +9,14 @@ public class DragDroplet : MonoBehaviour
     public bool isBeingHeld = true;
 
     // Jank
-    public int JANK;
+    private bool moreJank;
+    private Cactus cactusWatered;
     private void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
             isBeingHeld = false;
+            Debug.Log("first");
         }
 
         if (isBeingHeld == true)
@@ -26,21 +28,30 @@ public class DragDroplet : MonoBehaviour
         }
         else
         {
-            
-            gameObject.SetActive(false);
+            Debug.Log("got here");
+            if (moreJank)
+            {
+                cactusWatered.GetComponent<Cactus>().waterLevel += GameController.MONTH;
+                Debug.Log(cactusWatered.GetComponent<Cactus>().waterLevel);
+                moreJank = false;
+            } else {
+                gameObject.SetActive(false);
+            }
+           
         }
+    }
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Cactus otherItem = other.GetComponent<Cactus>();
+        cactusWatered = otherItem;
+        moreJank = true;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        JANK++;
-        Cactus otherItem = other.GetComponent<Cactus>();
-
-        if (otherItem != null && JANK <= 1)
-        {
-            gameObject.SetActive(false);
-            isBeingHeld = false;
-            Debug.Log("Watered");
-        }
+        moreJank = false;
+        cactusWatered = null;
     }
 }
