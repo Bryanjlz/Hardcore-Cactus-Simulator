@@ -73,6 +73,7 @@ public class PotMover : MonoBehaviour
             if (alreadyDead)
             {
                 GameController.instance.plants -= 1;
+                GameController.instance.timeMultiplier = GameController.instance.CalculateTimeMultiplier(GameController.instance.plants);
             }
             Debug.Log(GameController.instance.plants);
         }
