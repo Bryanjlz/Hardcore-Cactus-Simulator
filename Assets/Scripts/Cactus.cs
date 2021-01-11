@@ -14,8 +14,8 @@ public class Cactus : MonoBehaviour
     private const float DEATH_TEMP_ERROR = PERFECT_TEMP * 0.05f;
     private const float DEATH_TEMP_LOWER = PERFECT_TEMP - DEATH_TEMP_ERROR;
     private const float DEATH_TEMP_UPPER = PERFECT_TEMP + DEATH_TEMP_ERROR;
-    private const float PERFECT_GROWTH = 1;
-
+    private const float PERFECT_GROWTH = 1f;
+    private const float ASCENSION_SPEED = 2f;
     //Status
     [SerializeField]
     int growthState;
@@ -122,6 +122,13 @@ public class Cactus : MonoBehaviour
             spriteRenderer.color = new Color(r, g, b);
         }
 
-        //
+        //Ascension animation
+        if (isAscended) {
+            Transform t = gameObject.transform;
+            gameObject.transform.position = new Vector3(t.position.x, t.position.y + ASCENSION_SPEED * timeElapsed, t.position.z);
+            if (t.position.y > 5.2) {
+                Destroy(gameObject);
+            }
+        }
     }
 }

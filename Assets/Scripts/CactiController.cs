@@ -13,6 +13,7 @@ public class CactiController : MonoBehaviour
     //Cactus array
     GameObject[][] cacti = new GameObject[3][];
 
+    List<GameObject> ascending = new List<GameObject>();
     //Cactus prefab
     [SerializeField]
     GameObject cactusPrefab;
