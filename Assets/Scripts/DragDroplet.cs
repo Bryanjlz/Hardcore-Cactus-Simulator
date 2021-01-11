@@ -31,7 +31,7 @@ public class DragDroplet : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         JANK++;
         Cactus otherItem = other.GetComponent<Cactus>();
