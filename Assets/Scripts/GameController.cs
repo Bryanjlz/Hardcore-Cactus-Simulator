@@ -40,6 +40,7 @@ public class GameController: MonoBehaviour {
         score = 0;
         
         SceneManager.LoadScene("PosterScene", LoadSceneMode.Additive);
+        CactiController.instance.AddCactus();
     }
 
     public void Update() {
