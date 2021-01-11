@@ -8,6 +8,8 @@ public class DragDroplet : MonoBehaviour
     private float startPosY;
     public bool isBeingHeld = true;
 
+    // Jank
+    public int JANK;
     private void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -24,7 +26,21 @@ public class DragDroplet : MonoBehaviour
         }
         else
         {
+            
             gameObject.SetActive(false);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        JANK++;
+        Cactus otherItem = other.GetComponent<Cactus>();
+
+        if (otherItem != null && JANK <= 1)
+        {
+            gameObject.SetActive(false);
+            isBeingHeld = false;
+            Debug.Log("Watered");
         }
     }
 }

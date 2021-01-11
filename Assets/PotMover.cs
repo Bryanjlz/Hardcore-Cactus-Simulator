@@ -64,14 +64,12 @@ public class PotMover : MonoBehaviour
     {
         JANK++;
         OutTheWindow otherItem = other.collider.GetComponent<OutTheWindow>();
-        gameObject.SetActive(false);
 
         if (otherItem != null && JANK <= 1)
         {
             Destroy(gameObject);
-                GameController.instance.plants -= 1;
-                GameController.instance.timeMultiplier = GameController.instance.CalculateTimeMultiplier(GameController.instance.plants);
-            }
-        Debug.Log(GameController.instance.plants);
+            GameController.instance.plants -= 1;
+            GameController.instance.timeMultiplier = GameController.instance.CalculateTimeMultiplier(GameController.instance.plants);
+        }   
     }   
 }
