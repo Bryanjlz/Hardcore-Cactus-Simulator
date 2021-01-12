@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +7,12 @@ public class Cactus : MonoBehaviour
 {
     //Constants
     
-    private const float PERFECT_WATER = 3 * GameController.MONTH;
-    private const float DEATH_WATER_ERROR = PERFECT_WATER * 0.5f;
+    private const float PERFECT_WATER = 6 * GameController.MONTH;
+    private const float DEATH_WATER_ERROR = PERFECT_WATER * 2f;
     private const float DEATH_WATER_UPPER = PERFECT_WATER + DEATH_WATER_ERROR;
     private const float DEATH_WATER_LOWER = 0;
     private const float PERFECT_TEMP = 68;
-    private const float DEATH_TEMP_ERROR = PERFECT_TEMP * 0.05f;
+    private const float DEATH_TEMP_ERROR = PERFECT_TEMP * 2;
     private const float DEATH_TEMP_LOWER = PERFECT_TEMP - DEATH_TEMP_ERROR;
     private const float DEATH_TEMP_UPPER = PERFECT_TEMP + DEATH_TEMP_ERROR;
     private const float PERFECT_GROWTH = 1f;
@@ -23,8 +24,8 @@ public class Cactus : MonoBehaviour
     float growth;
     [SerializeField]
     float growthRate;
-    private float tempGrowthReduction;
-    private float waterGrowthReduction;
+    private float tempGrowthBonus;
+    private float waterGrowthBonus;
     [SerializeField]
     float[] growthCheckpoints = new float[8];
     [SerializeField]
@@ -55,6 +56,8 @@ public class Cactus : MonoBehaviour
     [SerializeField]
     public SpriteRenderer spriteRenderer;
 
+    // Water Level
+    public TMPro.TMP_Text waterText;
 
     // Start is called before the first frame update
     void Start()
@@ -70,21 +73,32 @@ public class Cactus : MonoBehaviour
         growthCheckpoints[5] = GameController.YEAR * 6;
         growthCheckpoints[6] = GameController.YEAR * 7;
         growthCheckpoints[7] = GameController.YEAR * 8;
+
+        waterText.text = (Math.Round((waterLevel / PERFECT_WATER) * 100).ToString() + "%");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isAlive) {
+            waterText.text = (Math.Ceiling((waterLevel / PERFECT_WATER) * 100).ToString() + "%");
+        } else
+        {
+            waterText.text = ("RIP");
+        }
+
         //Get Room stats
         timeElapsed = GameController.instance.inGameDeltaTime;
         accumulatedTime += timeElapsed;
         if (accumulatedTime > 1 && isAlive && !isAscended) {
             temp = (int) GameController.instance.temperature;
 
-            //Calculate growth rate
-            tempGrowthReduction = Mathf.Abs((temp - PERFECT_TEMP) / DEATH_TEMP_ERROR) * 0.5f;
-            waterGrowthReduction = Mathf.Abs((waterLevel - PERFECT_WATER) / DEATH_WATER_ERROR) * 0.5f;
-            growthRate = PERFECT_GROWTH - tempGrowthReduction - waterGrowthReduction;
+            // Bonuses
+            tempGrowthBonus = Mathf.Abs((temp - PERFECT_TEMP) / PERFECT_TEMP);
+            
+            waterGrowthBonus = Mathf.Abs((waterLevel - PERFECT_WATER) / PERFECT_WATER);
+
+            growthRate = PERFECT_GROWTH + (Mathf.Max((0.5f - waterGrowthBonus), 0) + Mathf.Max((0.5f - tempGrowthBonus), 0));
 
             //Update cactus stats
             waterLevel -= accumulatedTime;
