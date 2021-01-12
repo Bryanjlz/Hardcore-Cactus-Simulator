@@ -32,6 +32,8 @@ public class GameController: MonoBehaviour {
     public float mousex;
     public float mousey;
 
+    public bool holdingCactus = false;
+
     public void Start() {
         if (!instance) {
             instance = this;
@@ -45,8 +47,16 @@ public class GameController: MonoBehaviour {
 
     public void Update() {
         float delta = Time.deltaTime;
-        inGameDeltaTime = delta * timeMultiplier;
-        time = time.Add(new TimeSpan((long)(inGameDeltaTime * SECOND_TO_TICK)));
+        
+        if (holdingCactus) {
+            time = time.Add(new TimeSpan((long)(0.01)));
+            inGameDeltaTime = 0.01f;
+        } else
+        {
+            time = time.Add(new TimeSpan((long)(inGameDeltaTime * SECOND_TO_TICK)));
+            inGameDeltaTime = delta * timeMultiplier;
+        }
+        
 
         mousex = (Camera.main.ScreenToWorldPoint(Input.mousePosition)).x;
         mousey = (Camera.main.ScreenToWorldPoint(Input.mousePosition)).y;

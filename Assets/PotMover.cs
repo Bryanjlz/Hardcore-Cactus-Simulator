@@ -30,17 +30,15 @@ public class PotMover : MonoBehaviour
         {
             isBeingHeld = false;
 
-            // Go back to original position
-            if (true)
-            {
-                this.gameObject.transform.localPosition = new Vector3(originalX, originalY, 0);
-            }
+            GameController.instance.holdingCactus = false;
+            this.gameObject.transform.localPosition = new Vector3(originalX, originalY, 0);
         }
 
         if (isBeingHeld == true)
         {
             startPosX = GameController.instance.mousex;
             startPosY = GameController.instance.mousey;
+            GameController.instance.holdingCactus = true;
 
             this.gameObject.transform.localPosition = new Vector3(startPosX - shiftedX, startPosY - shiftedY, 0);
         }
@@ -68,6 +66,7 @@ public class PotMover : MonoBehaviour
         if (otherItem != null && JANK <= 1)
         {
             Destroy(gameObject);
+            GameController.instance.holdingCactus = false;
             GameController.instance.plants -= 1;
             GameController.instance.timeMultiplier = GameController.instance.CalculateTimeMultiplier(GameController.instance.plants);
         }   
