@@ -34,7 +34,7 @@ public class CactiController : MonoBehaviour
     }
 
     public void AddCactus () {
-        if (GameController.instance.plants < 30) {
+        if (GameController.instance.plants < 31) {
             int row = Random.Range(0, 3);
             int col = Random.Range(0, 10);
             while (cacti[row][col] != null) {

@@ -10,11 +10,11 @@ public class Thermostat: MonoBehaviour {
 
     public void Start() {
         dateText.text = new DateTime(2000, 1, 1, 0, 0, 0).ToString("yyyy-MM-dd\nHH:mm:ss");
-        temperatureText.text = GameController.instance.temperature.ToString();
+        temperatureText.text = Math.Round(GameController.instance.temperature).ToString();
     }
 
     public void Update() {
         dateText.text = GameController.instance.time.ToString("yyyy-MM-dd\nHH:mm:ss");
-        temperatureText.text = GameController.instance.temperature.ToString();
+        temperatureText.text = Math.Round(GameController.instance.temperature).ToString();
     }
 }

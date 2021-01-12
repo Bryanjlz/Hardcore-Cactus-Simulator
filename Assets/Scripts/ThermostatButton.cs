@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ThermostatButton: MonoBehaviour {
 
+    bool incre;
+    bool decre;
+
     public enum ButtonType {
         INCREMENT,
         DECREMENT,
@@ -14,9 +17,11 @@ public class ThermostatButton: MonoBehaviour {
     public void OnMouseDown() {
         switch (type) {
             case ButtonType.INCREMENT:
-                IncrementTemperature();
+                incre = true;
+                
                 break;
             case ButtonType.DECREMENT:
+                decre = true;
                 DecrementTemperature();
                 break;
             case ButtonType.CACTUS:
@@ -25,12 +30,26 @@ public class ThermostatButton: MonoBehaviour {
         }
     }
 
+    public void OnMouseUp() {
+        incre = false;
+        decre = false;
+    }
+
+    private void Update() {
+        if (incre) {
+            IncrementTemperature();
+        }
+        if (decre) {
+            DecrementTemperature();
+        }
+    }
+
     public void IncrementTemperature() {
-        GameController.instance.temperature++;
+        GameController.instance.temperature += Time.deltaTime * 25;
     }
 
     public void DecrementTemperature() {
-        GameController.instance.temperature--;
+        GameController.instance.temperature -= Time.deltaTime * 25;
     }
 
     public void BuyCactus() {
