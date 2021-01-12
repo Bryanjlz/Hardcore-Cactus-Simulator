@@ -15,6 +15,7 @@ public class PotMover : MonoBehaviour
 
     // Jank
     private int JANK;
+    public Cactus connectedCactus;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class PotMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && !connectedCactus.isAscended)
         {
             isBeingHeld = false;
 
@@ -46,16 +47,18 @@ public class PotMover : MonoBehaviour
 
     private void OnMouseDown()
     {
-        startPosX = GameController.instance.mousex;
-        startPosY = GameController.instance.mousey;
+        if (!connectedCactus.isAscended) {
+            startPosX = GameController.instance.mousex;
+            startPosY = GameController.instance.mousey;
 
-        originalX = this.gameObject.transform.localPosition.x;
-        originalY = this.gameObject.transform.localPosition.y;
+            originalX = this.gameObject.transform.localPosition.x;
+            originalY = this.gameObject.transform.localPosition.y;
 
-        shiftedX = startPosX - this.gameObject.transform.localPosition.x;
-        shiftedY = startPosY - this.gameObject.transform.localPosition.y;
+            shiftedX = startPosX - this.gameObject.transform.localPosition.x;
+            shiftedY = startPosY - this.gameObject.transform.localPosition.y;
 
-        isBeingHeld = true;
+            isBeingHeld = true;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)

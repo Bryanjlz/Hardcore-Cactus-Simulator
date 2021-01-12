@@ -33,7 +33,7 @@ public class Cactus : MonoBehaviour
     [SerializeField]
     bool isAlive;
     [SerializeField]
-    bool isAscended;
+    public bool isAscended;
     bool initAscendFlag = true;
     [SerializeField]
     GameObject ascendParticles;

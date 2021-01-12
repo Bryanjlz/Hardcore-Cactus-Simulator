@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBeingHeld: 0
+  connectedCactus: {fileID: 4327870078637696284}
 --- !u!50 &2838115295401211941
 Rigidbody2D:
   serializedVersion: 4

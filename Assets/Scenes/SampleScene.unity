@@ -182,9 +182,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 585311110457165133, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: _SortingLayerID
+      value: 1396005945
+      objectReference: {fileID: 0}
     - target: {fileID: 760394993881233002, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
       propertyPath: m_Name
       value: Thermostat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770734174312285126, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770734174312285126, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1396005945
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971781869973424541, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971781869973424541, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1396005945
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135575040166624964, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: _SortingLayerID
+      value: 1396005945
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377499275520762576, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377499275520762576, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1396005945
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 653f3e3f18e0c954dacf3128228fcbd9, type: 3}
@@ -892,7 +924,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.74, y: 6.36}
+    oldSize: {x: 4.79, y: 6.42}
     newSize: {x: 4.74, y: 6.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
