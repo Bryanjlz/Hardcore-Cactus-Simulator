@@ -12,7 +12,7 @@ public class Cactus : MonoBehaviour
     private const float DEATH_WATER_UPPER = PERFECT_WATER + DEATH_WATER_ERROR;
     private const float DEATH_WATER_LOWER = 0;
     private const float PERFECT_TEMP = 68;
-    private const float DEATH_TEMP_ERROR = PERFECT_TEMP * 2;
+    private const float DEATH_TEMP_ERROR = PERFECT_TEMP * .1f;
     private const float DEATH_TEMP_LOWER = PERFECT_TEMP - DEATH_TEMP_ERROR;
     private const float DEATH_TEMP_UPPER = PERFECT_TEMP + DEATH_TEMP_ERROR;
     private const float PERFECT_GROWTH = 1f;

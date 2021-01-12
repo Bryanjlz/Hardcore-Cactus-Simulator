@@ -17,8 +17,15 @@ public class GameController: MonoBehaviour {
     public const int YEAR = 12 * MONTH;
 
     //Control values
-    //In Kelvin
+    //In Fahrenheit
     public float temperature = 68;
+    //In Celcius
+    public float lowerTemp = 59;
+    public float higherTemp = 77;
+    public float tempSwap = 20;
+    private float timeSinceTempSwap = 0;
+    private float towardsTemperature = 0;
+
     public DateTime time;
     public float inGameDeltaTime;
     public static int score = 0;
@@ -40,13 +47,15 @@ public class GameController: MonoBehaviour {
         }
         time = new DateTime(2000, 1, 1, 0, 0, 0);
         score = 0;
-        
+        towardsTemperature = lowerTemp;
+
         SceneManager.LoadScene("PosterScene", LoadSceneMode.Additive);
         CactiController.instance.AddCactus();
     }
 
     public void Update() {
         float delta = Time.deltaTime;
+        timeSinceTempSwap += Time.deltaTime;
         
         if (holdingCactus) {
             time = time.Add(new TimeSpan((long)(0.01)));
@@ -65,11 +74,21 @@ public class GameController: MonoBehaviour {
             SceneManager.LoadScene("End Screen", LoadSceneMode.Single);
         }
 
-        float towardsTemperature = seasonalController.GetAmbientTemperature(time);
-        towardsTemperature = delta * ((15 * 1.8f + 32) - temperature)/20;
+        //float towardsTemperature = seasonalController.GetAmbientTemperature(time);
+       
+        if (timeSinceTempSwap > tempSwap) {
+            if (towardsTemperature == higherTemp) {
+                towardsTemperature = lowerTemp;
+            } else {
+                towardsTemperature = higherTemp;
+            }
+            timeSinceTempSwap = 0;
+        }
+        float tempChange = delta * (towardsTemperature - temperature)/20;
+
         //prevent bad;
-        if (Mathf.Abs(towardsTemperature) < 1f) {
-            temperature += towardsTemperature;
+        if (Mathf.Abs(tempChange) < 1f) {
+            temperature += tempChange;
         }
     }
 

@@ -14,6 +14,6 @@ public class Thermostat: MonoBehaviour {
 
     public void Update() {
         dateText.text = GameController.instance.time.ToString("yyyy-MM-dd\nHH:mm:ss");
-        temperatureText.text = Math.Round(GameController.instance.temperature).ToString();
+        temperatureText.text = Math.Round(GameController.instance.temperature).ToString() +"°";
     }
 }
