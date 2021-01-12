@@ -95,11 +95,11 @@ public class Cactus : MonoBehaviour
             temp = (int) GameController.instance.temperature;
 
             // Bonuses
-            tempGrowthBonus = Mathf.Abs((temp - PERFECT_TEMP) / PERFECT_TEMP);
+            tempGrowthBonus = Mathf.Abs((temp - PERFECT_TEMP) / 5);
             
             waterGrowthBonus = Mathf.Abs((waterLevel - PERFECT_WATER) / PERFECT_WATER);
 
-            growthRate = PERFECT_GROWTH + (Mathf.Max((0.5f - waterGrowthBonus), 0) + Mathf.Max((0.5f - tempGrowthBonus), 0));
+            growthRate = PERFECT_GROWTH + (Mathf.Max((1f - waterGrowthBonus), 0) + Mathf.Max((1f - tempGrowthBonus), 0));
 
             //Update cactus stats
             waterLevel -= accumulatedTime;
