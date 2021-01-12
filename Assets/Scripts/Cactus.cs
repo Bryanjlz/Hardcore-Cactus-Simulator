@@ -84,6 +84,7 @@ public class Cactus : MonoBehaviour
             waterText.text = (Math.Ceiling((waterLevel / PERFECT_WATER) * 100).ToString() + "%");
         } else
         {
+            waterText.color = Color.red;
             waterText.text = ("RIP");
         }
 
@@ -155,7 +156,6 @@ public class Cactus : MonoBehaviour
             }
             gameObject.transform.position = new Vector3(t.position.x, t.position.y + ASCENSION_SPEED * Time.deltaTime, t.position.z);
             if (t.position.y > 5.2) {
-                GameController.instance.plants--;
                 Destroy(gameObject);
             }
         }
